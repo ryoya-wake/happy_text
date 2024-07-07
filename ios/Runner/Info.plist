@@ -45,5 +45,16 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSDocumentsFolderUsageDescription</key>
+	<string>ファイルの選択およびアップロードのために、ドキュメントフォルダへのアクセスが必要です。</string>
+	<key>NSDownloadsFolderUsageDescription</key>
+	<string>ファイルの選択およびアップロードのために、ダウンロードフォルダへのアクセスが必要です。</string>
+	<key>NSDesktopFolderUsageDescription</key>
+	<string>ファイルの選択およびアップロードのために、デスクトップフォルダへのアクセスが必要です。</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>フォトライブラリへのアクセスが必要です。</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>フォトライブラリへのアクセスが必要です。</string>
+
 </dict>
 </plist>
