@@ -1,0 +1,5 @@
+package com.example.summary_pdf
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity()
