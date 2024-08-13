@@ -55,18 +55,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
   List<TopicContent> _topicContents = [];
 
-  //テキスト抽出を別スレッドで実行する
-  Future<List<String>> _extractTextInOtherThread(File file) async {
-    return await compute(_extractText, file.readAsBytesSync());
+// テキスト抽出を別スレッドで実行する
+  Future<List<String>> _extractTextInOtherThread(Uint8List fileBytes) async {
+    return await compute(_extractText, fileBytes);
   }
 
-  //抽出されたテキストの文字列配列を返す
-  static List<String> _extractText(List<int> bytes) {
+  // 抽出されたテキストの文字列配列を返す
+  static List<String> _extractText(Uint8List bytes) {
     final PdfDocument document = PdfDocument(inputBytes: bytes);
     final List<String> texts = [];
     final endPage = document.pages.count;
-    const _endPage = 10;
-    for (int i = 0; i < _endPage; i++) {
+    const _endPage = 10; // 最大10ページまで抽出する設定
+    for (int i = 0; i < _endPage && i < endPage; i++) {
       final text = PdfTextExtractor(document)
           .extractText(startPageIndex: i, endPageIndex: i);
       texts.add(text);
@@ -111,11 +111,26 @@ class _MyHomePageState extends State<MyHomePage> {
         type: FileType.custom,
         allowedExtensions: ['pdf'],
       );
+
       if (result != null && result.files.isNotEmpty) {
-        File file = File(result.files.single.path!);
+        Uint8List fileBytes;
+        String fileName;
+
+        if (kIsWeb) {
+          // Web環境での処理
+          fileBytes = result.files.single.bytes!;
+          fileName = result.files.single.name;
+        } else {
+          // モバイル/デスクトップでの処理
+          File file = File(result.files.single.path!);
+          fileBytes = file.readAsBytesSync();
+          fileName = file.path;
+        }
+
         // テキスト抽出
-        final pdfTexts = await _extractTextInOtherThread(file);
+        final pdfTexts = await _extractTextInOtherThread(fileBytes);
         List<TopicContent> topicContents = [];
+
         for (String text in pdfTexts) {
           final title = await chatGptRequest(text, contentTitlePrompt);
           final summary = await chatGptRequest(text, summaryPrompt);
@@ -126,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
         setState(() {
           _topicContents = topicContents;
-          _filePath = result.files.single.path;
+          _filePath = fileName;
           _isLoading = false;
         });
       } else {
