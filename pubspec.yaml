@@ -70,7 +70,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
   # To add assets to your application, add an assets section, like this:
   assets:
-    - docs/assets/.env
+    - .env
     - docs/assets/
     - docs/assets/images/
     - images/kouhou.png
