@@ -19,10 +19,10 @@ const contentTitlePrompt = "次のテキストの内容に対して見出しを1
 const contentTypePrompt =
     '次のテキストをイベント,生活,市政,交通,文化の1カテゴリに必ず分類して、不要な記号はつけずにカテゴリ名のみ返してください。';
 
-// Future<void> main() async {
-//   await dotenv.load(fileName: '.env'); //ここを追加
-//   runApp(const MyApp());
-// }
+Future<void> main() async {
+  // await dotenv.load(fileName: '.env'); //ここを追加
+  runApp(const MyApp());
+}
 
 //ヘルプボタンイベント
 void navigate(BuildContext context) {
