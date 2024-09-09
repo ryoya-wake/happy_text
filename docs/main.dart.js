@@ -22789,7 +22789,7 @@ pB:function pB(a){this.a=a},
 agI(){var s=0,r=A.R(t.H),q,p,o,n,m,l,k
 var $async$agI=A.S(function(a,b){if(a===1)return A.O(b,r)
 while(true)switch(s){case 0:s=2
-return A.U($.al4().wR(),$async$agI)
+return A.U($.al4().wR("/happy_text/assets/.env"),$async$agI)
 case 2:if($.aw==null)A.api()
 q=$.aw
 q.toString
@@ -71676,34 +71676,33 @@ if(r)q.b.pop()
 return!0},
 $S:59}
 A.W3.prototype={
-wR(){var s=".env",r=!1
-return this.agb()},
-agb(){var s=0,r=A.R(t.H),q=1,p,o=this,n,m,l,k,j,i,h
-var $async$wR=A.S(function(a,b){if(a===1){p=b
-s=q}while(true)switch(s){case 0:k=".env"
-j=!1
-i=o.b
-i.F(0)
+wR(a){var s=!1
+return this.agb(a)},
+agb(a){var s=0,r=A.R(t.H),q=1,p,o=this,n,m,l,k,j,i
+var $async$wR=A.S(function(b,c){if(b===1){p=c
+s=q}while(true)switch(s){case 0:k=!1
+j=o.b
+j.F(0)
 n=null
 q=3
 s=6
-return A.U(o.uh(k),$async$wR)
-case 6:n=b
+return A.U(o.uh(a),$async$wR)
+case 6:n=c
 q=1
 s=5
 break
 case 3:q=2
-h=p
-if(A.ag(h) instanceof A.vf)if(j)n=A.b([],t.s)
-else throw h
-else throw h
+i=p
+if(A.ag(i) instanceof A.vf)if(k)n=A.b([],t.s)
+else throw i
+else throw i
 s=5
 break
 case 2:s=1
 break
 case 5:l=B.Hd.gdB().eW(0,new A.W4(),t.N).e_(0)
 B.b.E(l,n)
-i.E(0,B.zc.ah6(l))
+j.E(0,B.zc.ah6(l))
 o.a=!0
 return A.P(null,r)
 case 1:return A.O(p,r)}})
