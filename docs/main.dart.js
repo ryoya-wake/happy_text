@@ -22789,7 +22789,7 @@ pB:function pB(a){this.a=a},
 agI(){var s=0,r=A.R(t.H),q,p,o,n,m,l,k
 var $async$agI=A.S(function(a,b){if(a===1)return A.O(b,r)
 while(true)switch(s){case 0:s=2
-return A.U($.al4().wR("assets/.env"),$async$agI)
+return A.U($.al4().wR(".env"),$async$agI)
 case 2:if($.aw==null)A.api()
 q=$.aw
 q.toString
